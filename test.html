@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تجربة Alert احترافي</title>
+
+<!-- مكتبة SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+height:2000px;
+}
+
+/* زر عائم */
+.fab{
+position:fixed;
+bottom:30px;
+left:30px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:#ff5722;
+color:white;
+font-size:35px;
+border:none;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+transition:.3s;
+}
+
+.fab:hover{
+transform:scale(1.1);
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>جرب الضغط على زر +</h2>
+
+<button class="fab" id="fabAdd">+</button>
+
+<script>
+
+document.getElementById("fabAdd").onclick = function(){
+
+Swal.fire({
+title: 'عملية جديدة',
+text: 'ماذا تريد أن تفعل؟',
+icon: 'question',
+showCancelButton: true,
+confirmButtonText: 'إضافة عملية',
+cancelButtonText: 'إلغاء'
+}).then((result)=>{
+
+if(result.isConfirmed){
+
+Swal.fire({
+icon:'success',
+title:'تم بنجاح',
+text:'تم إنشاء العملية'
+})
+
+}
+
+})
+
+}
+
+</script>
+</body>
+</html>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	<script src="alert.js"></script>
+
+</body>
+</html>
+

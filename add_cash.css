@@ -1,0 +1,245 @@
+:root{
+  --bg: #f6f9fc;
+  --card-bg: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-2: #06b6d4;
+  --glass: rgba(2,6,23,0.03);
+  --radius: 12px;
+  --page-gutter-right: 40px;
+  --page-gutter-top: 20px;
+  --page-gutter-left: 40px;
+}
+
+html,body{height:100%;}
+/* page-wide gutters: top + right (full height) */
+body, .app, .content{box-sizing:border-box}
+body{
+  padding-top:var(--page-gutter-top);
+  padding-right:var(--page-gutter-right);
+  padding-left:var(--page-gutter-left);
+  min-height:100vh;
+}
+
+/* keep add-cash specific class styles */
+body.add-cash-page{
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,#f8fafc 0%, #f1f5f9 60%);
+  color: #0b1220;
+  margin:0;
+  -webkit-font-smoothing:antialiased;
+  direction: rtl;
+}
+
+.container {
+  max-width: 1200px;
+  /* center container and rely on body paddings for left/right gutters */
+  margin: 0 auto;
+  padding: 18px;
+}
+
+a{
+      display:inline-block;
+    padding:12px 28px;
+    background: linear-gradient(135deg,#4776E6,#8E54E9);
+    color:#fff;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:8px;
+    letter-spacing:1px;
+    transition:0.3s ease;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+    position:relative;
+    overflow:hidden;
+}
+
+a:hover{
+  transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+a:active{
+  transform:scale(0.95);
+}
+
+a::before {
+content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.5),
+        transparent
+    );
+    transition:0.5s;
+}
+a:hover::before {
+    left:100%;
+}
+.add-cash-wrap {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.side-left {
+  position: sticky;
+  top: 20px;
+}
+.page-header .page-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+.page-sub {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.controls .card{background:var(--card-bg);border-radius:10px;border:1px solid rgba(15,23,36,0.06);box-shadow:0 6px 18px rgba(15,23,36,0.03)}
+.controls label{font-size:13px;color:var(--muted)}
+
+.between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-right .analytics .cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.card.metric #walletCount{
+  background-color: #2563eb;
+  padding:14px;
+  border-radius:0px;
+  border:1px solid rgba(255, 0, 76, 0.04);
+  -webkit-border-radius:0px;
+  -moz-border-radius:0px;
+  -ms-border-radius:0px;
+  -o-border-radius:0px;
+}
+.card.metric #walletCount.value{font-size:18px;
+  font-weight:700;
+  color:#fff;
+
+}
+.card.metric #walletCount.label{font-size:12px;color:#fff;margin-top:4px}
+
+.wallet-cards .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+
+
+.wallet-card,.product-card{background:var(--card-bg);border-radius:var(--radius);padding:16px;box-shadow:0 8px 28px rgba(15,23,36,0.06);border:1px solid rgba(15,23,36,0.04);transition:transform .18s ease,box-shadow .18s ease;border-color .18s ease;overflow:hidden;position:relative;display:flex;flex-direction:column}
+.wallet-card:hover,.product-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,23,36,0.09);border-color:rgba(37,99,235,0.12)}
+
+/* header row */
+.head{display:flex;align-items:center;gap:12px}
+.wallet-avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:18px;flex:0 0 56px}
+.phone{font-weight:800;font-size:15px}
+.tag{background:rgba(15,23,36,0.04);padding:6px 8px;border-radius:8px;font-size:12px;color:var(--muted);margin-inline-start:auto}
+.meta{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* prominent balance */
+.balance{margin-top:12px;font-size:22px;font-weight:900;color:#0b1220;display:flex;align-items:center;justify-content:space-between}
+.balance small{font-weight:600;color:var(--muted);font-size:12px}
+
+/* compact info grid */
+.wallet-info{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
+.wallet-info .row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.wallet-info .label{font-weight:600;color:#111827}
+
+/* progress and countdown */
+.progress-wrap{display:flex;align-items:center;gap:8px;margin-top:12px}
+.progress-label{font-size:13px;color:var(--muted);min-width:44px;text-align:center}
+.progress{flex:1;background:rgba(15,23,36,0.04);height:10px;border-radius:8px;overflow:hidden}
+.progress-bar{height:100%;border-radius:8px;background:linear-gradient(90deg,#10b981,#34d399);transition:width .3s ease,box-shadow .2s ease}
+.progress-bar.yellow{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.progress-bar.red{background:linear-gradient(90deg,#ef4444,#f97316)}
+.progress-bar.over{box-shadow:0 6px 18px rgba(239,68,68,0.18)}
+
+.countdown{margin-top:10px}
+.count{height:8px;background:rgba(15,23,36,0.04);border-radius:6px;overflow:hidden}
+.count.green{background:linear-gradient(90deg,#10b981,#34d399)}
+.count.yellow{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.count.red{background:linear-gradient(90deg,#ef4444,#f97316)}
+
+.smalls{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* actions */
+.actions{display:flex;gap:8px;margin-top:12px}
+.actions .btn{padding:8px 10px;border-radius:8px;border:1px solid rgba(15,23,36,0.06);background:transparent;cursor:pointer}
+.actions .btn.success{background:linear-gradient(90deg,#10b981,#34d399);color:#fff;border:0}
+.actions .btn.danger{background:linear-gradient(90deg,#ef4444,#fb7185);color:#fff;border:0}
+.actions .btn.small{font-size:13px}
+
+/* selection checkbox */
+.select-wrap{position:absolute;left:12px;top:12px}
+
+@media (max-width: 700px){
+  .wallet-info{grid-template-columns:1fr}
+  .head{gap:10px}
+  .wallet-avatar{width:48px;height:48px;flex:0 0 48px}
+}
+
+/* modal styles override simple, keeps existing IDs working */
+#walletModal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;z-index:1050}
+#walletModal.hidden{display:none}
+#walletModal .modal-panel{width:100%;max-width:680px;background:#fff;border-radius:14px;padding:0;border:1px solid rgba(15,23,36,0.06);box-shadow:0 20px 60px rgba(15,23,36,0.06)}
+.modal-header{padding:12px 16px;border-bottom:1px solid rgba(15,23,36,0.04);display:flex;align-items:center}
+.modal-header h2{margin:0;font-size:16px;color:var(--bg)}
+.modal-header .close{background:transparent;border:0;color:var(--muted);font-size:20px}
+.modal-body{padding:16px
+  margin-top:12px;
+}
+.modal-body .form-group label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px;
+margin: 20px;}
+.modal-footer{padding:12px 16px;border-top:1px solid rgba(15,23,36,0.04)}
+
+/* Wallet form layout improvements */
+#walletForm{display:block;padding:12px 16px;
+
+margin-block-start: 34px;
+
+
+}
+#walletForm .row{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+#walletForm .row label{min-width:150px;max-width:220px;font-size:14px;color:#0b1220;font-weight:600}
+#walletForm .row input,#walletForm .row select,#walletForm .row textarea{flex:1 1 260px;padding:10px 12px;border:1px solid rgba(15,23,36,0.08);border-radius:8px;background: #fff}
+#walletForm .row input[type="date"],#walletForm .row input[type="number"]{padding:8px 10px}
+#walletForm hr{border:none;border-top:1px solid rgba(15,23,36,0.04);margin:12px 0}
+#walletForm .modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:12px 0 0 0;border-top:0}
+
+/* make labels stack on small screens */
+@media (max-width: 700px){
+  #walletForm .row{flex-direction:column;align-items:stretch}
+  #walletForm .row label{min-width:0;max-width:100%;margin-bottom:6px}
+}
+
+@media (max-width: 900px) {
+  .add-cash-wrap {
+    grid-template-columns: 1fr;
+  }
+  .main-right .analytics .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .side-left {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-right .analytics .cards {
+    grid-template-columns: 1fr;
+  }
+}
